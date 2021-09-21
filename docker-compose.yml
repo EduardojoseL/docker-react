@@ -8,12 +8,12 @@ services:
       - '3000:3000'
     volumes:
       - /home/node/app/node_modules
-      - .:/app
-    tests:
-      build:
-        context:
-        dockerfile: Dockerfile.dev
-      volumes:
-        - /home/node/app/node_modules
-        - .:/home/node/app
-      command: ["npm","run","test"]
+      - .:/home/node/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /home/node/app/node_modules
+      - .:/home/node/app
+    command: ["npm","run","test"]
